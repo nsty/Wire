@@ -74,9 +74,9 @@ void twi_init(void)
   twi_sendStop = true;		// default value
   twi_inRepStart = false;
   
-  // activate internal pullups for twi.
-  digitalWrite(SDA, 1);
-  digitalWrite(SCL, 1);
+  // disable internal pullups for 3v3 compatibility of twi
+  digitalWrite(SDA, 0);
+  digitalWrite(SCL, 0);
 
   // initialize twi prescaler and bit rate
   cbi(TWSR, TWPS0);
